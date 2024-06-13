@@ -211,7 +211,6 @@ class LPIPSScore(nn.Module):
             img = Image.open(img_path).convert('RGB')
             img = transform(img)
             images.append(img)
-        
         return torch.stack(images)
 
     def forward(self, folderA, folderB):
@@ -227,9 +226,6 @@ class LPIPSScore(nn.Module):
                 batchB = imagesB[i:i+self.batch_size]
                 lpips_score = self.loss_fn(batchA, batchB)
                 lpips_scores.append(lpips_score)
-
             lpips_scores = torch.cat(lpips_scores)
-        
         return lpips_scores.mean().item()
-
         
