@@ -8,3 +8,7 @@ coverage
 checkpoints/
 datasets/
 results/
+/venv/
+build/
+.idea/
+dist/
